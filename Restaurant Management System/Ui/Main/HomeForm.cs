@@ -1,4 +1,10 @@
-﻿using System;
+﻿using Cafe_Management_System.Ui.Control;
+using Cafe_Management_System.Ui.Event;
+using FontAwesome.Sharp;
+using Guna.UI2.WinForms;
+using Restaurant_Management_System.Ui.Control;
+using Restaurant_Management_System.Witget;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -108,11 +114,129 @@ namespace Restaurant_Management_System.Ui.Main
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
+
+        public IEventHandler FormClickEvent;
+        private UserControl activeControl;
+        private void OpenControl(UserControl control)
+        {
+            if (activeControl != null && activeControl.GetType() == control.GetType())
+            {
+                activeControl.BringToFront();
+            }
+            else
+            {
+                // Remove the existing control (if any)
+                if (activeControl != null)
+                    this.Controls.Remove(activeControl);
+
+                // Set the new active control
+                activeControl = control;
+
+                // Dock and add the control
+                control.Dock = DockStyle.Fill;
+                try
+                {
+                    this.FormClickEvent = (control as IEventHandler);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Error: ${e.Message}");
+                }
+                finally
+                {
+                    containerControl.Controls.Add(control);
+                }
+
+            }
+        }
         #endregion
+
+        #region Menu App
+        private bool isHidenMenu = true;
+        private Timer menuAnimationTimer;
+        private int targetWidth;
+        private int animationStep;
+        private int animationDuration = 150;
+        private int frameRate = 15; // Frame rate in milliseconds
+        private void icMenu_Click(object sender, EventArgs e)
+        {
+            int startWidth = pnMenu.Width;
+            targetWidth = isHidenMenu ? 64 : 220; // Toggle target width
+            int totalFrames = animationDuration / frameRate;
+            animationStep = (targetWidth - startWidth) / totalFrames;
+            if (menuAnimationTimer == null)
+            {
+                menuAnimationTimer = new Timer();
+                menuAnimationTimer.Interval = frameRate; // Update every frame
+                menuAnimationTimer.Tick += MenuAnimationTimer_Tick;
+            }
+            menuAnimationTimer.Start();
+            isHidenMenu = !isHidenMenu;
+
+        }
+       
+
+        private void MenuAnimationTimer_Tick(object sender, EventArgs e)
+        {
+            // Smoothly adjust the width
+            pnMenu.Width += animationStep;
+
+            // Check if the animation is complete
+            if ((animationStep > 0 && pnMenu.Width >= targetWidth) ||
+                (animationStep < 0 && pnMenu.Width <= targetWidth))
+            {
+                pnMenu.Width = targetWidth; // Ensure exact final width
+                menuAnimationTimer.Stop();
+            }
+        }
+        #endregion
+
+
         public HomeForm()
         {
             InitializeComponent();
+            currentButonActive = icHome;
+            LoopControl(pnMenu.Controls);
+        
+            OpenControl(new HomeControl());
+           
         }
+
+        private void LoopControl(System.Windows.Forms.Control.ControlCollection controls)
+        {
+            foreach (var item in controls)
+            {
+                if (item is Guna2Panel guna2Panel)
+                {
+                    LoopControl(guna2Panel.Controls); // Recursively loop through the panel's controls
+                }
+                else if (item is Guna2GradientPanel gradientPanel)
+                {
+                    LoopControl(gradientPanel.Controls); // Recursively loop through the gradient panel's controls
+                }
+                else if (item is MenuButton iconButton)
+                {
+                  if(iconButton.Name== currentButonActive.Name)
+                    {
+                        iconButton.IsFocused = true;
+                    }
+                  else
+                    {
+                        iconButton.IsFocused = false;
+                    }
+                }
+            }
+        }
+
+        private void MenuIcon_MouseHover(object sender, EventArgs e)
+        {
+            (sender as IconButton).BackColor = Color.FromArgb(220, 244, 255);
+        }
+        private void MenuIcon_MouseLeave(object sender, EventArgs e)
+        {
+            (sender as IconButton).BackColor = Color.Transparent;
+        }
+
 
         private void pnTitle_MouseDown(object sender, MouseEventArgs e)
         {
@@ -123,6 +247,60 @@ namespace Restaurant_Management_System.Ui.Main
         private void pnTitle_MouseUp(object sender, MouseEventArgs e)
         {
             this.Opacity = 100;
+        }
+
+        private void HomeForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.Q)
+            {
+                Application.Exit(); // Quit the application
+            }
+            else if (e.Control && e.KeyCode == Keys.F)
+            {
+                ResizeForm();
+            }
+            else if (e.Control && e.KeyCode == Keys.M)
+            {
+                MiniForm();
+            }
+        }
+
+        private void Setting_Click(object sender, EventArgs e)
+        {
+            OpenControl(new SettingControl());
+        }
+
+        private void Close_Click(object sender, EventArgs e)
+        {
+            CloseForm();
+        }
+
+        private void icReload_Click(object sender, EventArgs e)
+        {
+            this?.FormClickEvent?.OnReloadData();
+        }
+
+        private void icSearch_Click(object sender, EventArgs e)
+        {
+            this.FormClickEvent?.OnFormSearch(tbSearch.Text.ToString());
+        }
+
+        private MenuButton currentButonActive=null;
+      
+
+      
+        private void btnSignOut_Click(object sender, EventArgs e)
+        {
+           
+            CloseForm();
+        }
+
+        private void icHome_Click(object sender, EventArgs e)
+        {
+            currentButonActive = (sender as MenuButton);
+            LoopControl(pnMenu.Controls);
+            OpenControl(new HomeControl());
+
         }
     }
 }

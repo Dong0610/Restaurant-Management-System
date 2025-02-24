@@ -42,8 +42,14 @@
             this.pnSearch = new Guna.UI2.WinForms.Guna2Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.tbSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.pnReloalControl = new Guna.UI2.WinForms.Guna2Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.icHomeClick = new FontAwesome.Sharp.IconButton();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.icCloseApp = new FontAwesome.Sharp.IconButton();
@@ -52,17 +58,15 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.pnReloalControl = new Guna.UI2.WinForms.Guna2Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.iconDropDownButton1 = new FontAwesome.Sharp.IconDropDownButton();
             this.iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.icHomeClick = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.materialExpansionPanel1 = new MaterialSkin.Controls.MaterialExpansionPanel();
+            this.materialTextBox21 = new MaterialSkin.Controls.MaterialTextBox2();
             this.tpl1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pnInitControl.SuspendLayout();
+            this.containerControl.SuspendLayout();
             this.pnTitle.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
@@ -70,15 +74,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.pnReloalControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.pnReloalControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tpl1
@@ -125,6 +129,9 @@
             // 
             this.containerControl.BorderRadius = 6;
             this.containerControl.BorderThickness = 1;
+            this.containerControl.Controls.Add(this.materialTextBox21);
+            this.containerControl.Controls.Add(this.materialExpansionPanel1);
+            this.containerControl.Controls.Add(this.iconButton2);
             this.containerControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.containerControl.Location = new System.Drawing.Point(4, 4);
             this.containerControl.Name = "containerControl";
@@ -247,6 +254,30 @@
             this.tbSearch.TabIndex = 3;
             this.tbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyDown);
             // 
+            // pnReloalControl
+            // 
+            this.pnReloalControl.BackColor = System.Drawing.Color.Transparent;
+            this.pnReloalControl.BorderRadius = 22;
+            this.pnReloalControl.Controls.Add(this.pictureBox5);
+            this.pnReloalControl.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.pnReloalControl.Location = new System.Drawing.Point(18, 3);
+            this.pnReloalControl.Margin = new System.Windows.Forms.Padding(3, 3, 8, 3);
+            this.pnReloalControl.Name = "pnReloalControl";
+            this.pnReloalControl.Size = new System.Drawing.Size(42, 42);
+            this.pnReloalControl.TabIndex = 6;
+            this.pnReloalControl.Click += new System.EventHandler(this.pnReloalControl_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(10, 10);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(22, 22);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pnReloalControl_Click);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.panel4);
@@ -269,6 +300,72 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(244, 784);
             this.panel4.TabIndex = 1;
+            // 
+            // panel6
+            // 
+            this.panel6.AutoScroll = true;
+            this.panel6.Controls.Add(this.iconButton1);
+            this.panel6.Controls.Add(this.icHomeClick);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel6.Location = new System.Drawing.Point(0, 64);
+            this.panel6.Margin = new System.Windows.Forms.Padding(0);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(6);
+            this.panel6.Size = new System.Drawing.Size(244, 720);
+            this.panel6.TabIndex = 1;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
+            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(6, 57);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(0);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.iconButton1.Size = new System.Drawing.Size(232, 51);
+            this.iconButton1.TabIndex = 1;
+            this.iconButton1.Text = "Home";
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            // 
+            // icHomeClick
+            // 
+            this.icHomeClick.Dock = System.Windows.Forms.DockStyle.Top;
+            this.icHomeClick.FlatAppearance.BorderSize = 0;
+            this.icHomeClick.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
+            this.icHomeClick.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.icHomeClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.icHomeClick.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
+            this.icHomeClick.IconColor = System.Drawing.Color.Black;
+            this.icHomeClick.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icHomeClick.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.icHomeClick.Location = new System.Drawing.Point(6, 6);
+            this.icHomeClick.Margin = new System.Windows.Forms.Padding(0);
+            this.icHomeClick.Name = "icHomeClick";
+            this.icHomeClick.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.icHomeClick.Size = new System.Drawing.Size(232, 51);
+            this.icHomeClick.TabIndex = 0;
+            this.icHomeClick.Text = "Home";
+            this.icHomeClick.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.icHomeClick.UseVisualStyleBackColor = true;
+            this.icHomeClick.Click += new System.EventHandler(this.icHomeClick_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Margin = new System.Windows.Forms.Padding(0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(244, 64);
+            this.panel5.TabIndex = 0;
             // 
             // panel2
             // 
@@ -377,30 +474,6 @@
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
-            // pnReloalControl
-            // 
-            this.pnReloalControl.BackColor = System.Drawing.Color.Transparent;
-            this.pnReloalControl.BorderRadius = 22;
-            this.pnReloalControl.Controls.Add(this.pictureBox5);
-            this.pnReloalControl.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.pnReloalControl.Location = new System.Drawing.Point(18, 3);
-            this.pnReloalControl.Margin = new System.Windows.Forms.Padding(3, 3, 8, 3);
-            this.pnReloalControl.Name = "pnReloalControl";
-            this.pnReloalControl.Size = new System.Drawing.Size(42, 42);
-            this.pnReloalControl.TabIndex = 6;
-            this.pnReloalControl.Click += new System.EventHandler(this.pnReloalControl_Click);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(10, 10);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(22, 22);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pnReloalControl_Click);
-            // 
             // iconDropDownButton1
             // 
             this.iconDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -421,71 +494,60 @@
             this.iconMenuItem1.Size = new System.Drawing.Size(158, 22);
             this.iconMenuItem1.Text = "iconMenuItem1";
             // 
-            // panel5
+            // iconButton2
             // 
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(244, 64);
-            this.panel5.TabIndex = 0;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton2.IconColor = System.Drawing.Color.Black;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.Location = new System.Drawing.Point(360, 217);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(278, 86);
+            this.iconButton2.TabIndex = 0;
+            this.iconButton2.Text = "iconButton2";
+            this.iconButton2.UseVisualStyleBackColor = true;
             // 
-            // panel6
+            // materialExpansionPanel1
             // 
-            this.panel6.AutoScroll = true;
-            this.panel6.Controls.Add(this.iconButton1);
-            this.panel6.Controls.Add(this.icHomeClick);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel6.Location = new System.Drawing.Point(0, 64);
-            this.panel6.Margin = new System.Windows.Forms.Padding(0);
-            this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(6);
-            this.panel6.Size = new System.Drawing.Size(244, 720);
-            this.panel6.TabIndex = 1;
+            this.materialExpansionPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialExpansionPanel1.Depth = 0;
+            this.materialExpansionPanel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialExpansionPanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialExpansionPanel1.Location = new System.Drawing.Point(189, 342);
+            this.materialExpansionPanel1.Margin = new System.Windows.Forms.Padding(3, 16, 3, 16);
+            this.materialExpansionPanel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialExpansionPanel1.Name = "materialExpansionPanel1";
+            this.materialExpansionPanel1.Padding = new System.Windows.Forms.Padding(24, 64, 24, 16);
+            this.materialExpansionPanel1.Size = new System.Drawing.Size(480, 240);
+            this.materialExpansionPanel1.TabIndex = 1;
             // 
-            // icHomeClick
+            // materialTextBox21
             // 
-            this.icHomeClick.Dock = System.Windows.Forms.DockStyle.Top;
-            this.icHomeClick.FlatAppearance.BorderSize = 0;
-            this.icHomeClick.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
-            this.icHomeClick.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.icHomeClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.icHomeClick.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
-            this.icHomeClick.IconColor = System.Drawing.Color.Black;
-            this.icHomeClick.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icHomeClick.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icHomeClick.Location = new System.Drawing.Point(6, 6);
-            this.icHomeClick.Margin = new System.Windows.Forms.Padding(0);
-            this.icHomeClick.Name = "icHomeClick";
-            this.icHomeClick.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.icHomeClick.Size = new System.Drawing.Size(232, 51);
-            this.icHomeClick.TabIndex = 0;
-            this.icHomeClick.Text = "Home";
-            this.icHomeClick.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.icHomeClick.UseVisualStyleBackColor = true;
-            this.icHomeClick.Click += new System.EventHandler(this.icHomeClick_Click);
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
-            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(6, 57);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.iconButton1.Size = new System.Drawing.Size(232, 51);
-            this.iconButton1.TabIndex = 1;
-            this.iconButton1.Text = "Home";
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = true;
+            this.materialTextBox21.AnimateReadOnly = false;
+            this.materialTextBox21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.materialTextBox21.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.materialTextBox21.Depth = 0;
+            this.materialTextBox21.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialTextBox21.HideSelection = true;
+            this.materialTextBox21.LeadingIcon = null;
+            this.materialTextBox21.Location = new System.Drawing.Point(67, 140);
+            this.materialTextBox21.MaxLength = 32767;
+            this.materialTextBox21.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialTextBox21.Name = "materialTextBox21";
+            this.materialTextBox21.PasswordChar = '\0';
+            this.materialTextBox21.PrefixSuffixText = null;
+            this.materialTextBox21.ReadOnly = false;
+            this.materialTextBox21.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.materialTextBox21.SelectedText = "";
+            this.materialTextBox21.SelectionLength = 0;
+            this.materialTextBox21.SelectionStart = 0;
+            this.materialTextBox21.ShortcutsEnabled = true;
+            this.materialTextBox21.Size = new System.Drawing.Size(522, 48);
+            this.materialTextBox21.TabIndex = 2;
+            this.materialTextBox21.TabStop = false;
+            this.materialTextBox21.Text = "materialTextBox21";
+            this.materialTextBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.materialTextBox21.TrailingIcon = null;
+            this.materialTextBox21.UseSystemPasswordChar = false;
             // 
             // MainForm
             // 
@@ -502,6 +564,7 @@
             this.tpl1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.pnInitControl.ResumeLayout(false);
+            this.containerControl.ResumeLayout(false);
             this.pnTitle.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
@@ -509,15 +572,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnSearch.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.pnReloalControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.pnReloalControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -555,6 +618,9 @@
         private System.Windows.Forms.Panel panel5;
         private FontAwesome.Sharp.IconButton icHomeClick;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private MaterialSkin.Controls.MaterialTextBox2 materialTextBox21;
+        private MaterialSkin.Controls.MaterialExpansionPanel materialExpansionPanel1;
+        private FontAwesome.Sharp.IconButton iconButton2;
     }
 }
 

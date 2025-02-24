@@ -28,19 +28,13 @@ namespace Restaurant_Management_System.Ui.Item
 
             if (table.Status == "Occupied")
             {
-                this.BackColor = Color.Red;
+                this.BackColor = Color.FromArgb(255, 133, 102);
             }
             else if(table.Status== "Available")
             {
-                this.BackColor = Color.Green;
+                this.BackColor = Color.FromArgb(102, 255, 102);
             }
            
-        }
-
-        public void Resize(Size size)
-        {
-            this.Width = size.Width;
-            this.Height = size.Height;
         }
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)

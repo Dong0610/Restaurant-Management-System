@@ -113,7 +113,7 @@ namespace Cafe_Management_System
         #endregion
 
         public IEventHandler FormClickEvent;
-        private UserControl activeControl;
+        
         public MainForm()
         {
             InitializeComponent();
@@ -125,7 +125,7 @@ namespace Cafe_Management_System
             string text = tbSearch.Text.ToString();
             FormClickEvent?.OnFormSearch(text);
         }
-
+        private UserControl activeControl;
         private void OpenControl(UserControl control)
         {
             if (activeControl != null && activeControl.GetType() == control.GetType())

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,21 @@ namespace Restaurant_Management_System.Entity
         }
 
         public Dictionary<string, object> CachedData { get; private set; }
-        public string CurrentUser { get; set; }
+        private Accounts _loginAcc = null;
+        public Accounts CurrentUser()
+        {
+            if (_loginAcc == null)
+            {
+                using (var db = new QuanlibanhangContext())
+                {
+                    _loginAcc = db.Accounts.Where(t=> t.Username=="Admin" && t.PasswordHash=="admin").FirstOrDefault();
+                }
+            }
+            return _loginAcc;
+
+        }
+
+
         private Database()
         {
             CachedData = new Dictionary<string, object>();
@@ -39,6 +54,9 @@ namespace Restaurant_Management_System.Entity
                 {
                     dbApp = new QuanlibanhangContext();
                 }
+
+                
+                
                 return _instance;
             }
         }
